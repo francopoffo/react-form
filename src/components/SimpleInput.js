@@ -1,4 +1,4 @@
-import useInput from "../hooks/use-input";
+import useInput from "../hooks/user-input";
 
 const SimpleInput = (props) => {
   const {
@@ -17,7 +17,9 @@ const SimpleInput = (props) => {
     valueChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
     reset: resetEmailInput,
-  } = useInput((value) => value.includes("@"));
+  } = useInput((value) =>
+    value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
+  );
 
   let formIsValid = false;
 
